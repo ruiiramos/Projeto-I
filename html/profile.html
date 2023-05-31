@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistory  </title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <a href="/index.html" class="logo"><img src="/img/logo.png" alt="Logo"></a>
+
+        <ul class="navbar-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">Rules</a></li>
+            <li><button class="navbar-button">PLAY</button></li>
+        </ul>
+
+        <div class="navbar-right">
+
+            <div class="dark-mode-toggle">
+              <img src="/img/lua.svg" alt="Dark Mode" style="width: 28px; height: 28px;">
+            </div>
+
+            <div class="avatar">
+                <img src="/img/avatar-default.png" alt="Avatar" class="avatar-image">
+            </div>
+
+        </div>
+    </nav> 
+
+    <div class="profile-container">
+      <div class="avatar-container">
+        <img src="/img/avatar-default.png" alt="Avatar" class="avatar-grande">
+        <p class="change-avatar">Change avatar</p>
+      </div>
+    </div>
+    
+    <div id="change-info-section" class="details-container">
+
+      <div class="profile-details">
+        <div class="profile-field">
+          <label for="username">Username</label>
+          <input type="text" id="username" value="ruiiramos73" readonly>
+        </div>
+
+        <div class="profile-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" value="ruiramos2004@gmail.com" readonly>
+        </div>
+        <button class="update-button">Update</button>
+
+      </div>
+    </div>    
+
+    <div id="achieve-section" class="section">
+      
+      <!-- Achievement Boxes -->
+      <div class="achievements">
+        <div class="achievement-box">
+          <img src="/img/achievement1.png" alt="Achievement 1" class="achievement-image">
+          <div class="achievement-text">Achievement 1</div>
+        </div>
+        <div class="achievement-box">
+          <img src="/img/achievement2.png" alt="Achievement 2" class="achievement-image">
+          <div class="achievement-text">Achievement 2</div>
+        </div>
+        <div class="achievement-box">
+          <img src="/img/achievement3.png" alt="Achievement 3" class="achievement-image">
+          <div class="achievement-text">Achievement 3</div>
+        </div>
+        <div class="achievement-box">
+          <img src="/img/achievement4.png" alt="Achievement 4" class="achievement-image">
+          <div class="achievement-text">Achievement 4</div>
+        </div>
+      </div>      
+
+    </div>
+    
+    <div id="leader-section" class="section">
+    </div>
+    
+    <div id="log-out-section" class="section">
+    </div>
+
+    <div class="button-box">
+      <div class="button-container">
+        <button class="button" id="change-info">Change Informations</button>
+        <button class="button" id="achieve">Achievements</button>
+        <button class="button" id="leader">Leaderboard</button>
+        <button class="button" id="log-out">Log Out</button>
+      </div>
+    </div>
+
+    <script src="/js/views/profileView.js"></script>
+</body>
+</html>
