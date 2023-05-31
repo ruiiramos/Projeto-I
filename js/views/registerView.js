@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
       passwordInput.type = 'text';
       confirmPasswordInput.type = 'text';
       eyeIcons.forEach(function(eyeIcon) {
-        eyeIcon.src = '/img/olho-aberto.svg';
+        eyeIcon.src = '/img/tiny-elements/olho-aberto.svg';
       });
     } else {
       passwordInput.type = 'password';
       confirmPasswordInput.type = 'password';
       eyeIcons.forEach(function(eyeIcon) {
-        eyeIcon.src = '/img/olho-fechado.svg';
+        eyeIcon.src = '/img/tiny-elements/olho-fechado.svg';
       });
     }
   }
