@@ -163,36 +163,55 @@ nav {
 
 /* Achievement Boxes */
 .achievements {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  justify-items: center;
 }
 
 .achievement-box {
-  width: 120px;
-  height: 120px;
-  margin: 10px;
+  position: relative;
+  width: 150px;
+  height: 150px;
   text-align: center;
   background-color: #7754F6;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-top: 20px;
 }
 
 .achievement-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 75px;
+  height: 75px;
   border-radius: 10px;
+  margin-top: 35px;
 }
 
 .achievement-text {
-  color: #fff;
+  position: absolute;
+  bottom: -45px;
+  left: 0;
+  right: 0;
+  color: #000;
   font-size: 12px;
-  margin-top: 5px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.achievement-text span.title {
+  font-weight: bold;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.achievement-text span.description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
 }
 
 /* Button box */
