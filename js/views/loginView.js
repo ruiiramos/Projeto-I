@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
     isPasswordVisible = !isPasswordVisible;
     if (isPasswordVisible) {
       passwordInput.type = 'text';
-      eyeIcon.src = '/img/olho-aberto.svg';
+      eyeIcon.src = '/img/tiny-elements/olho-aberto.svg';
     } else {
       passwordInput.type = 'password';
-      eyeIcon.src = '/img/olho-fechado.svg';
+      eyeIcon.src = '/img/tiny-elements/olho-fechado.svg';
     }
   });
 });
