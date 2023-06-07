@@ -11,71 +11,76 @@
 <body>
     <!-- NAVBAR -->
     <nav>
-
-        <a href="#" class="logo"><img src="/img/tiny-elements/logo.png" alt="Logo"></a>
-
+        <a href="#home-section" class="logo"><img src="/img/tiny-elements/logo.png" alt="Logo" id="home-button"></a>
         <ul class="navbar-links">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contacts</a></li>
-            <li><a href="#">Rules</a></li>
+            <li><a href="./html/about.html" id="about-button">About</a></li>
+            <li><a href="./html/contacts.html" id="contact-button">Contacts</a></li>
+            <li><a href="./html/rules.html" id="rules-button">Rules</a></li>
             <li><button class="navbar-button">PLAY</button></li>
         </ul>
-
         <div class="navbar-right">
-
             <div class="dark-mode-toggle">
               <img src="/img/tiny-elements/lua.svg" alt="Dark Mode" style="width: 28px; height: 28px;">
             </div>
-
             <div class="auth-buttons">
                 <button class="signin-button" onclick="location.href='/html/login.html'">Sign In</button>
                 <button class="signup-button" onclick="location.href='/html/register.html'">Sign Up</button>
             </div>
-
         </div>
-
     </nav>     
     
+    <!-- HOME SECTION -->
+    <div id="home-section" class="section">
+      <div class="background-image">
+        <img src="/img/elements/background.png" alt="Background Image">
+      </div>
+      <div class="container">
+        <h1 class="title">MISTORY</h1>
+        <p class="text">Bem-vindo à nossa emocionante Escape Room! Descobre uma aventura emocionante cheia de enigmas desafiadores. Achas que estás pronto para aguentar toda a adrenalina e bater o relógio? Então prepara-te para jogar!</p>
+        <button class="button">PLAY NOW!</button>
+      </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
-        <div class="footer-line">
+      <div class="footer-line">
           <div class="footer-left">
-            <img src="/img/tiny-elements/logo.png" alt="Logo" style="width: 100px; height: 35px;">
+              <img src="/img/tiny-elements/logo.png" alt="Logo" style="width: 100px; height: 35px;">
           </div>
           <div class="footer-middle">
-            <div class="company">
-                <p>©2023 Mistory Inc.</p>
-            </div>
+              <div class="company">
+                  <p>©2023 Mistory Inc.</p>
+              </div>
           </div>
           <div class="footer-right">
-            <img src="/img/instagram.ico" alt="Instagram" style="width: 20px; height: 20px; margin-right: 10px;">
-            <img src="/img/twitter.ico" alt="Twitter" style="width: 20px; height: 20px; margin-right: 10px;">
-            <img src="/img/linkedin.ico" alt="LinkedIn" style="width: 20px; height: 20px;">
+              <img src="/img/icons/instagram.ico" alt="Instagram" style="width: 20px; height: 20px; margin-right: 10px;">
+              <img src="/img/icons/twitter.ico" alt="Twitter" style="width: 20px; height: 20px; margin-right: 10px;">
+              <img src="/img/icons/linkedin.ico" alt="LinkedIn" style="width: 20px; height: 20px;">
           </div>
-        </div>
-        <div class="footer-line">
+      </div>
+      <div class="footer-line">
           <div class="footer-left">
-            <ul class="footer-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contacts</a></li>
-              <li><a href="#">Rules</a></li>
-            </ul>
+              <ul class="footer-links">
+                  <li><a href="#home-section" id="home-button">Home</a></li>
+                  <li><a href="#about-section" id="about-button">About</a></li>
+                  <li><a href="#contact-section" id="contact-button">Contacts</a></li>
+                  <li><a href="#rules-section" id="rules-button">Rules</a></li>
+              </ul>
           </div>
           <div class="footer-middle">
-            <form class="newsletter-form">
-              <strong>NEWSLETTER</strong><br>
-              <input type="text" placeholder="Your Email Adress"><br>
-              <button type="submit">SUBSCRIBE NOW</button>
-            </form>
+              <form class="newsletter-form">
+                  <strong>NEWSLETTER</strong><br>
+                  <input type="text" placeholder="Your Email Address"><br>
+                  <button type="submit">SUBSCRIBE NOW</button>
+              </form>
           </div>
           <div class="footer-right">
-            <div class="contact">
-              <p><strong>Contact</strong></p>
-              <p>Rua D. Sancho I, 981<br>Vila do Conde, Portugal</p>
-            </div>
+              <div class="contact">
+                  <p><strong>Contact</strong></p>
+                  <p>Rua D. Sancho I, 981<br>Vila do Conde, Portugal</p>
+              </div>
           </div>
-        </div>
-    </footer>
+      </div>
+  </footer>
 </body>
 </html>
