@@ -232,7 +232,8 @@ footer {
     margin-bottom: 10px;
 }
   
-.footer-left {
+.footer-left,
+.footer-right {
     display: flex;
     align-items: center;
 }
@@ -256,12 +257,6 @@ footer {
 .footer-links li a {
     text-decoration: none;
     color: #fff;
-}
-  
-.footer-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
   
 .footer-right img {
@@ -305,7 +300,18 @@ footer {
 .contact {
     margin-top: 8px;
 }
+
+.contact p strong {
+    margin-right: 5px;
+}
   
-.contact p:first-child {
-    margin-bottom: 3px;
-}  
+  .contact p {
+    margin: 6px 0;
+    margin-right: 15px;
+    text-align: center;
+}
+  
+.footer-line:nth-child(2) {
+    border-top: 1px solid #fff;
+    padding-top: 10px;
+}
