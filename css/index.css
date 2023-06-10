@@ -1,8 +1,17 @@
+html {
+  position: relative;
+  min-height: 100%;
+  color: #f3f3f3;
+}
+
 body {
   font-family: "Roboto", Arial, sans-serif;
-  margin: 0; /* Add this line to remove default body margin */
-  padding: 0; /* Add this line to remove default body padding */
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* NAVBAR */
@@ -97,7 +106,6 @@ nav {
   cursor: pointer;
 }
 
-/* INDEX PAGE */
 /* Home Section */
 #home-section {
   display: flex;
@@ -172,8 +180,7 @@ footer {
   background-color: #1C1C1C;
   color: #fff;
   padding: 20px;
-  position: relative;
-  z-index: 1;
+  margin-top: auto;
 }
 
 .footer-line {
