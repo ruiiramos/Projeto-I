@@ -65,6 +65,7 @@ nav {
     border-radius: 20px;
     background-color: #F50E0E;
     color: #fff;
+    cursor: pointer;
 }
   
 .navbar-right {
