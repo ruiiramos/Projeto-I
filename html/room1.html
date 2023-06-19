@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistory</title>
+    <link rel="stylesheet" href="/css/room1.css">
+    <link rel="shortcut icon" href="/img/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/index.html" class="home-icon" id="home-icon"><img src="/img/tiny-elements/home-icon.svg" alt="Home Icon"></a>
+        <a href="/html/profile.html" class="avatar" id="avatar"><img src="/img/elements/avatar1.jpg" alt="avatar"></a>
+    </div>
+    <div class="timer" id="timer">20:00</div>
+    <div class="escape-room-container">
+        <img id="room-image" src="" alt="Escape Room Image">
+        <div id="point-1" class="clickable-point"></div>
+        <div id="point-2" class="clickable-point"></div>
+        <div id="point-3" class="clickable-point"></div>
+        <div id="point-4" class="clickable-point"></div>
+        <div id="point-5" class="clickable-point"></div>
+    
+        <div id="arrow-left" class="arrow">
+            <img src="/img/elements/seta-esquerda.png" alt="Left Arrow" width="40px" height="60px">
+        </div>
+        <div id="arrow-right" class="arrow">
+            <img src="/img/elements/seta-direita.png" alt="Right Arrow" width="40px" height="60px">
+        </div>
+    </div>
+    <div id="dialog-container" class="dialog-container">
+        <div class="dialog-info">
+            <h2 class="dialog-title">Narrador</h2>
+            <p class="dialog-text">Tens 20 minutos para voltar a casa, apanha todas as chaves ou então ficarás para sempre onde estás. Boa sorte! (Clica para continuar)</p>
+        </div>
+        <img src="/img/elements/npc.png" alt="Dialog Image" class="dialog-image">
+    </div>
+
+    <div id="modal"></div>
+
+    <div id="inventory">
+        <div id="inventory-slot-1" class="inventory-slot"></div>
+        <div id="inventory-slot-2" class="inventory-slot"></div>
+        <div id="inventory-slot-3" class="inventory-slot"></div>
+        <div id="inventory-slot-4" class="inventory-slot"></div>
+        <div id="inventory-slot-5" class="inventory-slot"></div>
+    </div>
+    
+    <div id="alert-overlay" class="alert-overlay">
+        <div class="alert-box">
+          <p id="alert-message" class="alert-message"></p>
+          <button id="alert-button" class="alert-button">OK</button>
+        </div>
+    </div>
+      
+    <script type="module" src="/js/views/room1View.js"></script>
+</body>
+</html>
