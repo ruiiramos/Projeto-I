@@ -1,6 +1,3 @@
-// JavaScript code in profileView.js
-
-// Get the elements
 const changeInfoButton = document.getElementById('change-info');
 const achieveButton = document.getElementById('achieve');
 const leaderButton = document.getElementById('leader');
@@ -9,6 +6,7 @@ const logOutButton = document.getElementById('log-out');
 const changeInfoSection = document.getElementById('change-info-section');
 const achieveSection = document.getElementById('achieve-section');
 const leaderSection = document.getElementById('leader-section');
+const button = document.querySelector('.update-button');
 
 // Add event listeners
 changeInfoButton.addEventListener('click', function () {
@@ -61,7 +59,7 @@ leaderButton.addEventListener('click', function () {
 
 logOutButton.addEventListener('click', function () {
   // Redirect to index.html
-  window.location.href = '/index.html';
+  window.location.href = '../index.html';
 });
 
 // Get the change avatar element

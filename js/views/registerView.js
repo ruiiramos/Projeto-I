@@ -1,10 +1,4 @@
-class User {
-  constructor(username, email, password) {
-    this.username = username;
-    this.email = email;
-    this.password = password;
-  }
-}
+import { User } from '../models/userModel.js'
 
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('form');
@@ -27,13 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
       passwordInput.type = 'text';
       confirmPasswordInput.type = 'text';
       eyeIcons.forEach(function(eyeIcon) {
-        eyeIcon.src = '/img/tiny-elements/olho-aberto.svg';
+        eyeIcon.src = '../assets/img/tiny-elements/olho-aberto.svg';
       });
     } else {
       passwordInput.type = 'password';
       confirmPasswordInput.type = 'password';
       eyeIcons.forEach(function(eyeIcon) {
-        eyeIcon.src = '/img/tiny-elements/olho-fechado.svg';
+        eyeIcon.src = '../assets/img/tiny-elements/olho-fechado.svg';
       });
     }
   }
@@ -56,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
     userList.push(user);
     localStorage.setItem('userList', JSON.stringify(userList));
 
-    alert('Registration successful!');
+    showAlertRegister('Registration successful!');
     form.reset();
   });
 
@@ -64,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const userList = JSON.parse(localStorage.getItem('userList')) || [];
 
     if (username.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
-      alert('Please fill in all fields.');
+      showAlert('Please fill in all fields.');
       return false;
     }
 
@@ -73,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     if (existingUser) {
-      alert('Username already taken. Please choose a different username.');
+      showAlert('Username already taken. Please choose a different username.');
       return false;
     }
 
@@ -82,15 +76,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     if (existingEmail) {
-      alert('Email already taken. Please choose a different email.');
+      showAlert('Email already taken. Please choose a different email.');
       return false;
     }
 
     if (password !== confirmPassword) {
-      alert('Passwords do not match. Please enter the same password.');
+      showAlert('Passwords do not match. Please enter the same password.');
       return false;
     }
 
     return true;
+  }
+
+  function showAlertRegister(message) {
+    const alert = document.querySelector('.alert');
+    const messageAlert = document.getElementById('message-alert');
+  
+    messageAlert.textContent = message;
+    alert.classList.add('show');
+  
+    closeBtn.addEventListener('click', function() {
+      alert.classList.remove('show');
+      location.href = "../html/login.html"
+    });
+  }
+
+  function showAlert(message) {
+    const alert = document.querySelector('.alert');
+    const messageAlert = document.getElementById('message-alert');
+  
+    messageAlert.textContent = message;
+    alert.classList.add('show');
+  
+    closeBtn.addEventListener('click', function() {
+      alert.classList.remove('show');
+    });
   }
 });

@@ -7,24 +7,29 @@ const desafio3 = new Challenge('Quem eram os cavaleiros que juravam lealdade ao 
 const desafio4 = new Challenge('Quais foram as grandes expedições militares cristãs para recuperar a Terra Santa dos muçulmanos durante a Era Medieval?', ['Invasões Viking', 'Cruzadas', 'Reconquista Ibérica', 'Jihad'], 2, 4);
 const desafio5 = new Challenge('Qual era o título dado ao comandante da guarda pessoal do rei?', ['Capitão da Guarda Real', 'Chefe da Segurança Real', 'Comandante Real', 'Guardião da Realeza'], 1, 5);
 
-const room1 = new EscapeRoom('First Room', '/img/elements/sala2.1.png');
+const room1 = new EscapeRoom('First Room', '../assets/img/elements/sala2.1.png');
 room1.addPuzzle(desafio1);
 room1.addPuzzle(desafio2);
 
-const room2 = new EscapeRoom('Second Room', '/img/elements/sala2.2.png');
+const room2 = new EscapeRoom('Second Room', '../assets/img/elements/sala2.2.png');
 room2.addPuzzle(desafio3);
 
-const room3 = new EscapeRoom('Third Room', '/img/elements/sala2.3.png');
+const room3 = new EscapeRoom('Third Room', '../assets/img/elements/sala2.3.png');
 room3.addPuzzle(desafio4);
 room3.addPuzzle(desafio5);
 
 const challengeImages = [
-  '/img/elements/puzzle1.png', // Image for Challenge 1
-  '/img/elements/puzzle2.png', // Image for Challenge 2
-  '/img/elements/puzzle3.png', // Image for Challenge 3
-  '/img/elements/puzzle4.png', // Image for Challenge 4
-  '/img/elements/puzzle5.png', // Image for Challenge 5
+  '../assets/img/elements/puzzle1.png', // Image for Challenge 1
+  '../assets/img/elements/puzzle2.png', // Image for Challenge 2
+  '../assets/img/elements/puzzle3.png', // Image for Challenge 3
+  '../assets/img/elements/puzzle4.png', // Image for Challenge 4
+  '../assets/img/elements/puzzle5.png', // Image for Challenge 5
 ];
+
+const failSound = new Audio('../assets/sounds/fail-sound.mp3')
+const rightSound = new Audio('../assets/sounds/correct-answer.mp3')
+const winSound = new Audio('../assets/sounds/win-sound.mp3')
+const loseSound = new Audio('../assets/sounds/lose-sound.mp3')
 
 let currentRoom = room1;
 
@@ -78,12 +83,14 @@ function openQuestionsModal(challenge) {
       button.addEventListener('click', function () {
         if (i === challenge.solution - 1) {
           showAnswerAlert('Resposta correta!', false);
+          rightSound.play();
           showPointsForCurrentRoom();
           challenge.solved = true;
           challenge.selectedAnswer = i + 1; // Assign the selected answer
           addToInventory(challenge);
         } else {
           showAnswerAlert('Resposta errada. Tenta outra vez!', true);
+          failSound.play();
           challenge.selectedAnswer = i + 1; // Assign the selected answer even for incorrect answers
         }
       })                             
@@ -154,6 +161,7 @@ function showPointsForCurrentRoom() {
   const allChallengesSolved = desafio1.solved && desafio2.solved && desafio3.solved && desafio4.solved && desafio5.solved;
   if (allChallengesSolved) {
     showAlert();
+    winSound.play();
     clearTimeout(timerId);
   }
   
@@ -285,6 +293,7 @@ function updateTimer() {
 
   if (remainingTime === 0) {
     showAlertTimer('O tempo esgotou-se. Tenta outra vez!');
+    loseSound.play();
   } else {
     timerId = setTimeout(updateTimer, 1000); // Update every second
   }
@@ -376,7 +385,7 @@ function showAlertTimer(message) {
 
   closeBtn.addEventListener('click', function() {
     alert2.classList.remove('show');
-    location.href = "/html/room2.html";
+    location.href = "../html/room2.html";
   });
 }
 

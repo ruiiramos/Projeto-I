@@ -107,6 +107,17 @@ nav {
     cursor: pointer;
 }
 
+.avatar {
+    margin-left: 10px;
+    cursor: pointer;
+}
+  
+.avatar-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 20px;
+}
+
 /* Contacts Section */
 #contact-section {
     padding: 20px;

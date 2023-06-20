@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mistory</title>
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="shortcut icon" href="/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="shortcut icon" href="../assets/img/icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
         <div class="left">
-            <img src="/img/elements/login.png" alt="Image">
+            <img src="../assets/img/elements/login.png" alt="Image">
         </div>
         <div class="right">
             <div class="content">
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <div class="password-input">
                             <input type="password" id="password" name="password" placeholder="Password">
-                            <img src="/img/tiny-elements/olho-fechado.svg" alt="Password Icon" id="eye-icon" class="password-icon">
+                            <img src="../assets/img/tiny-elements/olho-fechado.svg" alt="Password Icon" id="eye-icon" class="password-icon">
                         </div>
                     </div>
                     <div class="form-group">
@@ -32,16 +32,22 @@
                             <input type="checkbox" name="remember">
                             Keep me logged in
                         </label>
-                        <a href="forgot-password.html" class="forgot-password">Forgot password?</a>
                     </div>
                     <button type="submit">Log In</button>
                 </form>
-                <p class="signup-text">Don't have an account? <a href="register.html">Sign Up!</a></p>
+                <p class="signup-text">Don't have an account? <a href="../html/register.html">Sign Up!</a></p>
             </div>
-            <p class="back-link"><a href="/index.html">Back to the Home Page</a></p>
+            <p class="back-link"><a href="../index.html">Back to the Home Page</a></p>
         </div>
     </div>
-    <script src="/js/views/loginView.js"></script>
-    <script src="/js/models/userModel.js"></script>
+
+    <div class="alert">
+        <div class="box-alert">
+            <p id="message-alert" class="message-alert"></p>
+            <button id="closeBtn" class="closeBtn">OK</button>
+        </div>
+    </div>
+    
+    <script type="module" src="../js/views/loginView.js"></script>
 </body>
 </html>

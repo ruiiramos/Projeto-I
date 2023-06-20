@@ -7,28 +7,33 @@ const desafio3 = new Challenge('Os dinossauros foram grandes animais que povoara
 const desafio4 = new Challenge('Qual o dinossauro mais rápido de todos?', ['Tricerátops', 'Estegossauro', 'Gobisaurus', 'Velociraptor'], 4, 4);
 const desafio5 = new Challenge('Qual dos seguintes dinossauros era conhecido por ter uma crista óssea no topo da cabeça?', ['Brachiosaurus', 'Parasaurolophus', 'Ankylosaurus', 'Tyrannosaurus Rex'], 2, 5);
 
-const room1 = new EscapeRoom('First Room', '/img/elements/sala1.1.png');
+const room1 = new EscapeRoom('First Room', '../assets/img/elements/sala1.1.png');
 room1.addPuzzle(desafio1);
 room1.addPuzzle(desafio2);
 
-const room2 = new EscapeRoom('Second Room', '/img/elements/sala1.2.png');
+const room2 = new EscapeRoom('Second Room', '../assets/img/elements/sala1.2.png');
 room2.addPuzzle(desafio3);
 
-const room3 = new EscapeRoom('Third Room', '/img/elements/sala1.3.png');
+const room3 = new EscapeRoom('Third Room', '../assets/img/elements/sala1.3.png');
 room3.addPuzzle(desafio4);
 room3.addPuzzle(desafio5);
 
 const challengeImages = [
-  '/img/elements/chave1.png', // Image for Challenge 1
-  '/img/elements/chave2.png', // Image for Challenge 2
-  '/img/elements/chave3.png', // Image for Challenge 3
-  '/img/elements/chave4.png', // Image for Challenge 4
-  '/img/elements/chave5.png', // Image for Challenge 5
+  '../assets/img/elements/chave1.png', // Image for Challenge 1
+  '../assets/img/elements/chave2.png', // Image for Challenge 2
+  '../assets/img/elements/chave3.png', // Image for Challenge 3
+  '../assets/img/elements/chave4.png', // Image for Challenge 4
+  '../assets/img/elements/chave5.png', // Image for Challenge 5
 ];
 
 let currentRoom = room1;
 
 let dialogBoxClicked = false;
+
+const failSound = new Audio('../assets/sounds/fail-sound.mp3')
+const rightSound = new Audio('../assets/sounds/correct-answer.mp3')
+const winSound = new Audio('../assets/sounds/win-sound.mp3')
+const loseSound = new Audio('../assets/sounds/lose-sound.mp3')
 
 function openQuestionsModal(challenge) {
   if (!dialogBoxClicked) {
@@ -79,12 +84,14 @@ function openQuestionsModal(challenge) {
       button.addEventListener('click', function () {
         if (i === challenge.solution - 1) {
           showQuestionsAlert('Resposta correta!', false);
+          rightSound.play()
           showPointsForCurrentRoom();
           challenge.solved = true;
           challenge.selectedAnswer = i + 1; // Assign the selected answer
           addToInventory(challenge);
         } else {
           showQuestionsAlert('Resposta errada. Tenta outra vez!', true);
+          failSound.play()
           challenge.selectedAnswer = i + 1; // Assign the selected answer even for incorrect answers
         }
       })                             
@@ -291,6 +298,7 @@ function updateTimer() {
 
   if (remainingTime < 0) {
     showAlertTimer('O tempo esgotou-se. Tenta outra vez!');
+    loseSound.play();
   } else {
     timerId = setTimeout(updateTimer, 1000); // Update every second
   }
@@ -383,7 +391,7 @@ function showAlertTimer(message) {
 
   closeBtn.addEventListener('click', function() {
     alert2.classList.remove('show');
-    location.href = "/html/room1.html";
+    location.href = "../html/room1.html";
   });
 }
 
@@ -392,11 +400,12 @@ function showAlert() {
   const messageAlert = document.getElementById('message-alert2');
 
   messageAlert.textContent = 'Apanhaste todas as peças do puzzle. Parabéns!';
+  winSound.play();
   alert3.classList.add('show');
 
   closeBtn2.addEventListener('click', function() {
     alert3.classList.remove('show');
-    location.href = "/html/room2.html"
+    location.href = "../html/room2.html"
   });
 }
 

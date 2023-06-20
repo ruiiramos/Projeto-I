@@ -106,6 +106,17 @@ nav {
 .signup-button {
     cursor: pointer;
 }
+
+.avatar {
+    margin-left: 10px;
+    cursor: pointer;
+}
+  
+.avatar-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 20px;
+}
   
 /* About Section */
 .title {

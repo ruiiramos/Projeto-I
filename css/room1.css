@@ -499,10 +499,6 @@ body, html {
   transition: background-color 0.3s ease-in-out;
 }
 
-.closeBtn2:hover {
-  color: black;
-}
-
 .modal-dicas {
   display: none;
   position: fixed;
