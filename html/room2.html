@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistory</title>
+    <link rel="stylesheet" href="/css/room2.css">
+    <link rel="shortcut icon" href="/img/icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/index.html" class="home-icon" id="home-icon"><img src="/img/tiny-elements/home-icon.svg" alt="Home Icon"></a>
+        <button class="dicas-button">
+            <img src="/img/elements/lampada.png" class="btn-img" alt="Dicas" width="40px" height="40px">
+        </button>
+        <a href="/html/profile.html" class="avatar" id="avatar"><img src="/img/elements/avatar1.jpg" alt="avatar"></a>
+    </div>
+    <div class="timer" id="timer">05:00</div>
+    <div class="escape-room-container">
+        <img id="room-image" src="" alt="Escape Room Image">
+        <div id="point-1" class="clickable-point"></div>
+        <div id="point-2" class="clickable-point"></div>
+        <div id="point-3" class="clickable-point"></div>
+        <div id="point-4" class="clickable-point"></div>
+        <div id="point-5" class="clickable-point"></div>
+    
+        <div id="arrow-left" class="arrow">
+            <img src="/img/elements/seta-esquerda.png" alt="Left Arrow" width="40px" height="60px">
+        </div>
+        <div id="arrow-right" class="arrow">
+            <img src="/img/elements/seta-direita.png" alt="Right Arrow" width="40px" height="60px">
+        </div>
+    </div>
+    <div id="dialog-container" class="dialog-container">
+        <div class="dialog-info">
+            <h2 class="dialog-title">Narrador</h2>
+            <p class="dialog-text">Sê bem-vindo ao castelo abandonado da Era Medieval. Apanha todas as peças do puzzle e regressarás a casa! (Clica para continuar)</p>
+        </div>
+        <img src="/img/elements/npc.png" alt="Dialog Image" class="dialog-image">
+    </div>
+
+    <div id="modal"></div>
+
+    <div id="inventory">
+        <div id="inventory-slot-1" class="inventory-slot"></div>
+        <div id="inventory-slot-2" class="inventory-slot"></div>
+        <div id="inventory-slot-3" class="inventory-slot"></div>
+        <div id="inventory-slot-4" class="inventory-slot"></div>
+        <div id="inventory-slot-5" class="inventory-slot"></div>
+    </div>
+    
+    <div id="alert-overlay" class="alert-overlay">
+        <div class="alert-box">
+          <p id="alert-message" class="alert-message"></p>
+          <button id="alert-button" class="alert-button">OK</button>
+        </div>
+    </div>
+
+    <div class="alert2">
+        <div class="box-alert">
+            <p id="message-alert" class="message-alert"></p>
+            <button id="closeBtn" class="closeBtn">OK</button>
+        </div>
+    </div>
+
+    <div class="alert3">
+        <div class="box-alert2">
+            <p id="message-alert2" class="message-alert2"></p>
+            <button id="closeBtn2" class="closeBtn2">OK</button>
+        </div>
+    </div>
+
+    <div id="modal-dicas">
+        <div id="modal-dicas" class="modal-dicas">
+            <div class="modal-content-dicas">
+                <span class="close">&times;</span>
+                <h2>Dicas</h2>
+                <p class="text">
+                    Vamos mergulhar na Era Medieval, um período fascinante da História! 
+                    <br><br>
+                    Durante esta Era, havia uma hierarquia bem definida, com figuras importantes que desempenhavam papéis cruciais. O rei contava com um comandante especial para a sua guarda pessoal, que garantia a sua segurança e bem-estar.
+                    <br><br>
+                    Houve grandes expedições militares cristãs durante a Era Medieval, que procuravam recuperar a Terra Santa dos muçulmanos. Essas expedições ficaram conhecidas por um nome específico e foram motivadas por razões religiosas e políticas.
+                    <br><br>
+                    Dentro da sociedade feudal, havia um grupo de guerreiros leais e corajosos. Esses cavaleiros juravam lealdade ao seu senhor feudal e protegiam o seu território com bravura.
+                    <br><br>
+                    A Era Medieval abrangeu vários séculos, marcando uma transição importante entre épocas históricas. Esta iniciou-se com a queda do Império Romano e terminou com a transição para a Idade Moderna.
+                    <br><br>
+                    A Igreja Católica desempenhou um papel central durante a Era Medieval. O líder religioso desta época exercia uma influência significativa sobre a vida das pessoas, tendo responsabilidades espirituais e políticas.
+                    <br><br>
+                    Agora, com estas informações sobre a Era Medieval, desafia-te respondendo às perguntas e mergulha no conhecimento deste período histórico!</p>
+                <div class="modal-button">
+                  <button class="close-button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/views/room2View.js"></script>
+</body>
+</html>
