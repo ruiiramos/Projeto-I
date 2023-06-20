@@ -30,7 +30,7 @@ let currentRoom = room1;
 
 let dialogBoxClicked = false;
 
-function openModal(challenge) {
+function openQuestionsModal(challenge) {
   if (!dialogBoxClicked) {
     dialogBoxClicked = true;
     showPointsForCurrentRoom();
@@ -78,13 +78,13 @@ function openModal(challenge) {
       // Add click event listener to each button
       button.addEventListener('click', function () {
         if (i === challenge.solution - 1) {
-          showAlert('Resposta correta!', false);
+          showQuestionsAlert('Resposta correta!', false);
           showPointsForCurrentRoom();
           challenge.solved = true;
           challenge.selectedAnswer = i + 1; // Assign the selected answer
           addToInventory(challenge);
         } else {
-          showAlert('Resposta errada. Tenta outra vez!', true);
+          showQuestionsAlert('Resposta errada. Tenta outra vez!', true);
           challenge.selectedAnswer = i + 1; // Assign the selected answer even for incorrect answers
         }
       })                             
@@ -151,21 +151,11 @@ function showPointsForCurrentRoom() {
     }
   }
 
-  // Check if all challenges are solved and display the alert
-  const solvedChallenges = {};
-
-  // Mark each challenge as solved
-  solvedChallenges[desafio1.numero] = desafio1.solved;
-  solvedChallenges[desafio2.numero] = desafio2.solved;
-  solvedChallenges[desafio3.numero] = desafio3.solved;
-  solvedChallenges[desafio4.numero] = desafio4.solved;
-  solvedChallenges[desafio5.numero] = desafio5.solved;
-
   // Check if all challenges are solved
   const allChallengesSolved = desafio1.solved && desafio2.solved && desafio3.solved && desafio4.solved && desafio5.solved;
   if (allChallengesSolved) {
-    alert("Apanhaste todas as partes da chave! Parabéns!");
-    location.href = "/html/room2.html"
+    showAlert();
+    clearTimeout(timerId);
   }
   
 }
@@ -190,14 +180,14 @@ window.addEventListener('load', () => {
           return;
         }
 
-        openModal(challenge);
+        openQuestionsModal(challenge);
       });
     }
   }
 });
 
 const timerElement = document.getElementById('timer');
-let remainingTime = 20 * 60; // 20 minutes in seconds
+let remainingTime = 5 * 60;
 
 function startTimer() {
   document.getElementById('dialog-container').removeEventListener('click', startTimer);
@@ -216,35 +206,40 @@ function startTimer() {
   // Enable points after timer starts
   enablePoints();
 
+  document.querySelector('.dicas-button').addEventListener('click', function() {
+    const modal = document.querySelector('.modal-dicas');
+    modal.style.display = 'block';
+  })
+
   document.getElementById('point-1').addEventListener('click', function() {
     if (desafio1.solved || currentRoom !== room1) {
       return;
     }
-    openModal(desafio1);
+    openQuestionsModal(desafio1);
   });
   document.getElementById('point-2').addEventListener('click', function() {
     if (desafio2.solved || currentRoom !== room1) {
       return;
     }
-    openModal(desafio2);
+    openQuestionsModal(desafio2);
   });
   document.getElementById('point-3').addEventListener('click', function() {
     if (desafio3.solved || currentRoom !== room2) {
       return;
     }
-    openModal(desafio3);
+    openQuestionsModal(desafio3);
   });
   document.getElementById('point-4').addEventListener('click', function() {
     if (desafio4.solved || currentRoom !== room3) {
       return;
     }
-    openModal(desafio4);
+    openQuestionsModal(desafio4);
   });
   document.getElementById('point-5').addEventListener('click', function() {
     if (desafio5.solved || currentRoom !== room3) {
       return;
     }
-    openModal(desafio5);
+    openQuestionsModal(desafio5);
   });
 
   const point1 = document.getElementById('point-1');
@@ -286,6 +281,8 @@ function handleLeftArrowClick() {
   showPointsForCurrentRoom();
 }
 
+let timerId;
+
 function updateTimer() {
   const minutes = Math.floor(remainingTime / 60);
   const seconds = remainingTime % 60;
@@ -293,19 +290,16 @@ function updateTimer() {
   remainingTime--;
 
   if (remainingTime < 0) {
-    timerElement.textContent = "Time's up!";
-    // Add your desired action when the timer reaches 0
-    // For example, redirect to another page or display a message
+    showAlertTimer('O tempo esgotou-se. Tenta outra vez!');
   } else {
-    setTimeout(updateTimer, 1000); // Update every second
+    timerId = setTimeout(updateTimer, 1000); // Update every second
   }
 }
 
 function closeModal() {
   const modal = document.getElementById('modal');
-  // const alertModal = document.getElementById('alert-modal');
 
-  if (modal.innerHTML != '' /*&& alertModal.style.display === 'none'*/) {
+  if (modal.innerHTML != '') {
     modal.innerHTML = '';
     const closeSpans = modal.getElementsByClassName('close');
     for (let i = 0; i < closeSpans.length; i++) {
@@ -336,7 +330,7 @@ function enablePoints() {
   }
 }
 
-function showAlert(message, isError) {
+function showQuestionsAlert(message, isError) {
   const alertOverlay = document.getElementById('alert-overlay');
   const alertMessage = document.getElementById('alert-message');
   const alertButton = document.getElementById('alert-button');
@@ -369,7 +363,6 @@ function addToInventory(challenge) {
   // Check if there are available inventory slots
   const availableSlot = Array.from(inventorySlots).find(slot => !slot.hasChildNodes());
   if (!availableSlot) {
-    showAlert('Inventory is full!', true);
     return;
   }
 
@@ -380,3 +373,39 @@ function addToInventory(challenge) {
   // Add the image to the available inventory slot
   availableSlot.appendChild(inventoryItem);
 }
+
+function showAlertTimer(message) {
+  const alert2 = document.querySelector('.alert2')
+  const messageAlert = document.getElementById('message-alert');
+
+  messageAlert.textContent = message;
+  alert2.classList.add('show');
+
+  closeBtn.addEventListener('click', function() {
+    alert2.classList.remove('show');
+    location.href = "/html/room1.html";
+  });
+}
+
+function showAlert() {
+  const alert3 = document.querySelector('.alert3');
+  const messageAlert = document.getElementById('message-alert2');
+
+  messageAlert.textContent = 'Apanhaste todas as peças do puzzle. Parabéns!';
+  alert3.classList.add('show');
+
+  closeBtn2.addEventListener('click', function() {
+    alert3.classList.remove('show');
+    location.href = "/html/room2.html"
+  });
+}
+
+document.querySelector('.close-button').addEventListener('click', function() {
+  const modal = document.querySelector('.modal-dicas');
+  modal.style.display = 'none';
+})
+
+document.querySelector('.close').addEventListener('click', function() {
+  const modal = document.querySelector('.modal-dicas');
+  modal.style.display = 'none';
+})
