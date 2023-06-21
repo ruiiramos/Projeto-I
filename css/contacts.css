@@ -76,6 +76,7 @@ nav {
 .dark-mode-toggle {
     margin-top: 5px;
     margin-left: 10px;
+    cursor: pointer;
 }
   
 .auth-buttons {

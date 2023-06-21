@@ -38,8 +38,10 @@ html, body {
     position: absolute;
     top: 30px;
     right: 50px;
+    z-index: 1;
+    cursor: pointer;
 }
-
+  
 .avatar img {
     width: 45px;
     height: 45px;

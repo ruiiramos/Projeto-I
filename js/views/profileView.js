@@ -2,7 +2,10 @@ const changeInfoButton = document.getElementById('change-info');
 const achieveButton = document.getElementById('achieve');
 const leaderButton = document.getElementById('leader');
 const logOutButton = document.getElementById('log-out');
-
+const playButton = document.querySelector('.navbar-button')
+playButton.addEventListener('click', function() {
+  window.location.href = '../html/landingPage.html';
+})
 const changeInfoSection = document.getElementById('change-info-section');
 const achieveSection = document.getElementById('achieve-section');
 const leaderSection = document.getElementById('leader-section');
@@ -59,6 +62,7 @@ leaderButton.addEventListener('click', function () {
 
 logOutButton.addEventListener('click', function () {
   // Redirect to index.html
+  sessionStorage.removeItem('loggedUser');
   window.location.href = '../index.html';
 });
 

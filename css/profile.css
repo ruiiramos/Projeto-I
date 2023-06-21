@@ -55,6 +55,7 @@ nav {
   border-radius: 20px;
   background-color: #F50E0E;
   color: #fff;
+  cursor: pointer;
 }  
   
 .navbar-right {
@@ -64,6 +65,7 @@ nav {
   
 .dark-mode-toggle {
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .dark-mode-icon {

@@ -194,7 +194,7 @@ window.addEventListener('load', () => {
 });
 
 const timerElement = document.getElementById('timer');
-let remainingTime = 5 * 60;
+let remainingTime = 15 * 60;
 
 function startTimer() {
   document.getElementById('dialog-container').removeEventListener('click', startTimer);

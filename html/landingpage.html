@@ -22,6 +22,25 @@
         <p class="text">Boa sorte!</p>
         <button class="button" onclick="location.href='/html/room1.html'">PLAY NOW!</button>
     </div>
-    <script type="module" src="../js/views/indexView.js"></script>
+    <script>
+    const avatar = document.getElementById('logged-avatar');
+
+    if (sessionStorage.getItem('loggedUser')) {
+        avatar.innerHTML = `
+        <div class="avatar">
+        <img src="../assets/img/elements/avatar-default.png" alt="Avatar" class="avatar-image">
+        </div>`
+        avatar.addEventListener('click', function() {
+            location.href='../html/profile.html'
+        })
+    } else {
+        button.addEventListener('click', function() {
+            location.href='../html/login.html'
+        })
+        navbarButton.addEventListener('click', function() {
+            location.href='../html/login.html'
+        })
+    }
+    </script>
 </body>
 </html>
